@@ -1,0 +1,49 @@
+.quiz-background {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+  color: #fff;
+  padding: 20px;
+}
+
+.quiz-card {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.95);
+  color: #000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quiz-btn {
+  transition: all 0.3s ease;
+}
+
+.quiz-btn:hover {
+  transform: scale(1.05);
+  background-color: #f093fb !important;
+  color: #fff !important;
+}
+
+.selected {
+  transform: scale(1.05);
+  background-color: #f5576c !important;
+  color: #fff !important;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-10px); }
+}
