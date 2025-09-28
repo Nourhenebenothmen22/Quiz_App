@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+# 🎮 Quiz Application - React/Redux
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📋 Description du Projet
+Une application de quiz interactive développée avec **React** et **Redux Toolkit**.  
+Cette application permet aux utilisateurs de répondre à une série de questions et d'obtenir leurs résultats à la fin du quiz. 🚀
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## ✨ Fonctionnalités
+- 🎨 Interface moderne avec **design gradient** attrayant  
+- 🗂️ Gestion d'état centralisée avec **Redux Toolkit**  
+- 🧭 Navigation fluide avec **React Router**  
+- 🎬 Animation de transition entre les questions  
+- 🧮 Calcul automatique du score  
+- 💾 Persistance des réponses pendant la session  
+- 📱 Design responsive (desktop, tablette, mobile)  
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠 Technologies Utilisées
+- ⚛️ **React 18** - Bibliothèque frontend  
+- 🗂️ **Redux Toolkit** - Gestion d’état  
+- 🧭 **React Router DOM** - Navigation entre pages  
+- 🎨 **React Icons** - Icônes UI  
+- 💎 **Bootstrap 5** - Composants & styles rapides  
+- 🎬 **CSS3** - Animations et styles personnalisés  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 📁 Structure du Projet
+```bash
+quiz-app/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── App.js
+│   │   ├── Main.js
+│   │   ├── Quiz.js
+│   │   └── Result.js
+│   ├── database/
+│   │   └── data.js
+│   ├── redux/
+│   │   ├── Store.js
+│   │   └── quizSlice.js
+│   └── styles/
+│       ├── App.css
+│       ├── index.css
+│       └── Quiz.css
+└── package.json
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+🚀 Installation et Démarrage
+Prérequis
+Node.js (version 14 ou supérieure)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm ou yarn
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Étapes d'installation
+1-Cloner le repository
+git clone <repository-url>
+cd quiz-app
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2-Installer les dépendances
+npm install
 
-### `npm run eject`
+3-Démarrer l'application
+npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4-Ouvrir dans le navigateur
+http://localhost:3000
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+🎯 Utilisation de l'Application
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📋 Fonctionnalités
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 1. Page d'Accueil (`/`)
+- Saisie du **nom d’utilisateur**
+- Consultation des **instructions du quiz**
+- Bouton **Démarrer le quiz**
 
-## Learn More
+### 2. Page du Quiz (`/quiz`)
+- Répondre à **10 questions informatiques**
+- Navigation **Précédent / Suivant**
+- **Sélection unique** des réponses
+- Animation **fade-in / fade-out** entre les questions
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 3. Page des Résultats (`/result`)
+- Affichage du **score final**
+- Résumé des **performances**
+- Option pour **recommencer le quiz**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 📊 Système de Notation
+- 10 questions au total
+- ✅ 10 points par bonne réponse
+- 🎯 Score maximum : **100 points**
+- 🏆 Résultat : **Réussi si score ≥ 50 points**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 🔧 Configuration Redux
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Store Configuration
+```javascript
+import { configureStore } from "@reduxjs/toolkit";
+import quizReducer from "./quizSlice";
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export const store = configureStore({
+  reducer: {
+    quiz: quizReducer,
+  },
+});
